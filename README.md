@@ -16,13 +16,13 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Auteur:
-  Sanne 't Hooft (vervangen door jouw naam)
+  Roan Boersma
 
   #### Je startniveau:
-  hier je startniveau (kies uit zwart, rood óf blauw)
+  Rood (Zwart zou eventueel kunnen maar ik denk dat het net te ver is.)
 
   #### Je focus:
-  hier je focus (kies uit responsive óf surface plane)
+  Surfaceplane (Ik wil beide gaan doen indien ik tijd heb.)
  
 </details>
 
