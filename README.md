@@ -41,7 +41,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   hier de naam van de pagina  
-  <img src="../FED/FED24-25_Roan_Boersma/images/1" alt="omschrijving van de pagina">
+  <img src="../FED/FED24-25_Roan_Boersma/images/1" alt="Detail pagina voor een paar MR530 unisex - Trainers - Sea Salt van 119,85">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
