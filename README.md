@@ -40,12 +40,12 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   (https://www.zalando.nl/heren-home/)
 
   #### Screenshot(s) van de eerste pagina (small screen): 
-  hier de naam van de pagina  
-  <img src="images/1.png" alt="Detail pagina voor een paar MR530 unisex - Trainers - Sea Salt van 119,85">
+ Detail pagina voor een paar MR530 unisex - Trainers - Sea Salt
+  <img src="images/1.png" width="375px" alt="Detail pagina voor een paar MR530 unisex - Trainers - Sea Salt van 119,85">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="images/2.png" width="375px" alt="omschrijving van de pagina">
  
 </details>
 
