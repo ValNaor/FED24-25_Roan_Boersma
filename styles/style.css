@@ -1,27 +1,26 @@
 
-*, *::after, *::before {
-	box-sizing: border-box;  
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
   }
+  
   
   :root {
 	--color-text: #1A1A1A;
 	--color-background: white;
-  }
-  
-  * {
-	padding: 0;
-	margin: 0;
+	--color-deal: #D9000C;
   }
 
 a{
-	font-family: Arial, Helvetica, sans-serif;
+	font-family:  Helvetica, Arial, sans-serif;
 	font-weight:bolder;
 	font-size: 1em;
 	text-decoration: none;
 }
 
 h2{
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 1.5em;
 }
@@ -38,7 +37,7 @@ h4{
 }
 
 p{
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	color: var(--color-text);
 	font-weight: bold;
@@ -248,27 +247,79 @@ main section:nth-child(3) {
 /* SECTION FOTO'S */
 /******************/
 
-
 article ul {
     display: flex;               
     gap: 0.8em;                   
-    list-style: none;                          
-    overflow-x: auto;            
-    white-space: nowrap;         
+    list-style: none;             
+    overflow-x: auto;             
+    white-space: nowrap;          
     scrollbar-width: thin;       
+    padding: 0;
+    margin: 0;
+	margin-top: 2em;
 }
 
 article ul li {
-	max-width: 9.8em;          
+    max-width: 9.8em;            
+    text-align: left;          
+    box-sizing: border-box;      
 }
-
-article ul li p{     
-	overflow: hidden;          
-	text-overflow: ellipsis;
-}
-
 article ul li img {
     width: 9.8em;                
-    height: auto;               
-    object-fit: cover;            
+    height: auto;                
+    object-fit: cover;                   
+}
+
+article ul li h4 {
+    font-size: 1rem;            
+    margin-top: 0.5em;          
+    white-space: nowrap;        
+    overflow: hidden;           
+    text-overflow: ellipsis;    
+}
+
+article ul li p {
+    font-size: 0.9rem;          
+    margin: 0.2em 0;            
+    overflow: hidden;           
+    text-overflow: ellipsis;    
+    white-space: nowrap;        
+    color: #333;                
+}
+
+/* Deal tag */
+article ul li:nth-child(3), article ul li:nth-child(4), article ul li:nth-child(5), article ul li:nth-child(6), article ul li:nth-child(7)::after {
+    position: relative;
+}
+
+article ul li:nth-child(3)::after, article ul li:nth-child(4)::after, article ul li:nth-child(5)::after, article ul li:nth-child(6)::after, article ul li:nth-child(7)::after {
+    content: "Deal";
+	font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 15em;
+    left: 0; 
+    background-color: var(--color-deal);
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+}
+
+/* CYBERWEEK tag */
+article ul li:nth-child(3)::before, article ul li:nth-child(5)::before, article ul li:nth-child(6)::before, article ul li:nth-child(7)::before {
+    content: "CYBERWEEK";
+    font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    top: 15em;
+    left: 0; 
+    background-color: white;
+    color: var(--color-text);
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+}
+
+
+article ul li:nth-child(3)::after, article ul li:nth-child(5)::after, article ul li:nth-child(6)::after, article ul li:nth-child(7)::after {
+    left: calc(100% - 4.2em);
 }
