@@ -3,6 +3,7 @@
 	box-sizing: border-box;  
 	padding: 0;
 	margin: 0;
+	max-width: 100dvw;
   }
   
   :root {
@@ -10,8 +11,13 @@
 	--color-background: white;
 	--color-deal: #D9000C;
 	--color-bb: rgb(239,239,240);
+	--color-dark-mode: rgb(26,26,26);
+	--color-border: #D9DADC;
+	--color-zalando: #FF4C00;
   }
-  
+    /****************/
+   /*   font face  */
+  /****************/
 @font-face {
 	font-family: "Tiempos";
 	src: url(../fonts/tiempos/TestTiemposFine-Regular-BF66457a50e8bc9.otf);
@@ -20,6 +26,41 @@
 @font-face {
 	font-family: "helveticanow";
 	src: url(../fonts/helvetica-now/HelveticaNowVar\ \(2\).ttf);
+}
+/***************/
+/*  Keyframes  */
+/***************/
+
+@keyframes heart-bounce {
+    0% {
+        transform: scale(0); /* Start hidden */
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2); /* Overshoot (larger than normal) */
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.9); /* Slightly smaller */
+    }
+    100% {
+        transform: scale(1); /* Settle at normal size */
+    }
+}
+
+@keyframes heart-shrink {
+    0% {
+        transform: scale(1); /* Start at normal size */
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        transform: scale(1.2); /* Slight overshoot */
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0); /* Shrink back to invisible */
+        opacity: 0;
+    }
 }
 a{
 	font-family:  Helvetica, Arial, sans-serif;
@@ -61,49 +102,63 @@ p{
 /**********************/
   header {
 	display: flex;
+	flex-direction: column;
 	background-color: var(--color-background);
 	width: 100%;
   }
   
-  nav {
-	padding: 0.7em 0.8em;
+  article li{
 	display: flex;
-	flex-direction: row;
-	width: 100%;
-	gap: 2em;
+
   }
-  
-  nav ul {
+
+  header ul:nth-child(1){
+	align-items: center;
+	padding: 1em;
+  }
+
+  article ul:nth-child(1){
 	list-style: none;
 	display: flex;
 	flex-direction: row;
-	width: 100%;
-	gap: 1em;
-	margin: 0;
-	padding: 0;
-	align-items: center;
-  }
-
-  nav ul {
+	max-width: 100dvw;
 	gap: 1.2em;
+	align-items: flex-start;
+	
   }
 
-  nav ul li a {
+  ul:nth-child(1) {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	
+	max-width: 100dvw;
+	gap: 1.2em;
+	align-items: start;
+	
+  }
+
+  ul:nth-child(1) li a {
 	display: flex;
 	align-items: center;
 	gap: 0.5em;
 	text-decoration: none;
   }
   
-  nav ul li a img:nth-child(1) {
+  ul:nth-child(1) li a img:nth-child(1) {
 	display: block;
 	width: auto;
 	height: 1.5em;
   }
 
-  nav ul li a img:nth-child(2) {
+  ul:nth-child(1) li a img:nth-child(2) {
 	width: 6.4em;
 	height: 1.3em;
+  }
+
+  nav ul:nth-child(1) {
+	padding: 0em;
+	border: none;
   }
   
   button {
@@ -112,6 +167,7 @@ p{
 	padding: 0;
 	border: none;
 	background: transparent;
+	margin-left: 1.5em;
   }
   
   button img {
@@ -120,16 +176,38 @@ p{
 	object-fit: contain; 
   }
   
-  nav ul li a img:nth-child(4) {
+	ul:nth-child(1) li a img:nth-child(4) {
 	width: 24px;
 	height: 24px;
 	object-fit: contain;
   }
   
-  nav ul li:nth-child(2) {
+  ul:nth-child(1) li:nth-child(2) {
 	margin-left: auto;
 }
 
+nav{
+	display: flex;
+	
+}
+
+nav button{
+	border-top: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-border);
+	margin: 0em;
+	height: 50px;
+	width: 50px;
+}
+
+nav input{
+	all: unset;
+	flex-grow: 1;
+	border: none;
+	padding-left: 1em;
+	padding-right: 1em;
+	border: solid 1px var(--color-border);
+	
+}
 /*******************/
 /*	NAVIGATIE BAR  */
 /*******************/
@@ -157,22 +235,37 @@ main section:nth-child(1) {
   }
 
   main section:nth-child(1) h4 {
-	padding-top: 1.5em;	
+	padding-top: 2em;	
+	font-family: "tiempos", "times new roman", sans-serif;
   }
 
   main section h2 span {
 	display: block;
   }
- 
-  main section:nth-child(2) nav ul:nth-child(1) {
+
+  /**************/
+  /* Sticky nav */
+  /**************/
+
+  /* https://chatgpt.com/share/674f2d30-5fd4-800c-b802-91a5fbea0fc8 */
+  
+  main section:nth-child(2) {
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background-color: white; 
+	padding: 1em; 
+  }
+   
+
+  main section:nth-child(2){
 	display: flex;
 	gap: 2em;
 	padding: 1em;
-	margin-left: 1em;
+	border: solid 1px var(--color-bb);
 	list-style: none;
 	overflow-x: auto;
-	width: 100vw;
-	max-width: 375px;
+	width: 100dvw;
   }
   
   main section:nth-child(2) nav ul:nth-child(1) li {
@@ -190,19 +283,15 @@ main section:nth-child(1) {
 
   }
 
-  main section:nth-child(1) {
-	border: 1px solid lightgray;
-  }
-
 /*******************/
 /*	 SECTION 3/7   */
 /*******************/
 
 main section:nth-child(3) {
-	border-top: 1px solid lightgray;
+	margin-top: 3em;
 	width: 100vw;
 	height: auto;
-	padding: 4em 1em 1em 1em;
+	padding: 1em 1em 1em 1em;
 	background-color: var(--color-background);
 	display: flex; 
 	flex-direction: column; 
@@ -213,7 +302,8 @@ main section:nth-child(3) {
   main section:nth-child(7) {
 	width: 100vw;
 	height: auto;
-	padding: 4em 1em 3em 1em;
+	padding: 1em;
+	margin-bottom: 3em ;
 	background-color: var(--color-background);
 	display: flex; 
 	flex-direction: column; 
@@ -283,16 +373,17 @@ article ul {
     overflow-x: auto;             
     white-space: nowrap;          
     scrollbar-width: thin;       
-    padding: 0;
+    padding: 1em 0em 0em 0em;
     margin: 0;
-	margin-top: 2em;
 }
 
-article ul li {
+article ul li {	
 	position: relative;
     max-width: 9.8em;
     text-align: left;
     box-sizing: border-box;
+	flex-direction: column;
+    align-items: flex-end;
 }
 
 article ul li img {
@@ -307,49 +398,24 @@ article ul li h4 {
     margin-top: 0.5em;          
     white-space: nowrap;        
     overflow: hidden;           
-    text-overflow: ellipsis;    
+    text-overflow: ellipsis; 
+	align-self: flex-start;   
 }
 
 article ul li p {
     font-size: 0.9rem;          
     margin: 0.2em 0;            
-    overflow: hidden;           
+    overflow-x: hidden;          
     text-overflow: ellipsis;    
     white-space: nowrap;        
-    color: #333;                
+    color: #333;  
+	align-self: start;      
+	max-width: 10.5em;        
 }
 
 article:nth-child(2), article:nth-child(3){
 	margin-bottom: 2em;
-}
-
-
-article ul li::before, article ul li::after {
-    font-family: Helvetica, Arial, sans-serif;
-    position: absolute;
-    font-size: 0.8em;
-    font-weight: bold;
-    padding: 0.25em 0.5em;
-}
-
-article ul li:nth-child(3)::after, article ul li:nth-child(4)::after, article ul li:nth-child(5)::after, article ul li:nth-child(6)::after, article ul li:nth-child(7)::after{
-    content: "Deal";
-    background-color: var(--color-deal);
-    color: white;
-    top: 15em; 
-    left: 0;
-}
-
-article ul li:nth-child(3)::before, article ul li:nth-child(5)::before, article ul li:nth-child(6)::before, article ul li:nth-child(7)::before {
-    content: "CYBERWEEK";
-    background-color: white;
-    color: var(--color-text);
-    top: 15em; 
-    left: 0;
-}
-
-article ul li:nth-child(3)::after, article ul li:nth-child(5)::after, article ul li:nth-child(6)::after, article ul li:nth-child(7)::after {
-    left: calc(100% - 4.2em); 
+	overflow: hidden;
 }
 
 main section h3{
@@ -392,17 +458,257 @@ main section:nth-child(8) article {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--color-bb) ;
-	padding: 2em 1em 1em 1em;
-	gap: 2em;
+	padding: 2em 0em 0em 1em;
+	margin-bottom: 3em;
+	
 }
 
 main section:nth-child(8) article h3{
 	max-width: 100dvw;
-	gap: 0em 2em 0em 0em;
 }
 
 main section:nth-child(8) article p{
 	font-family: "tiempos", "times new roman", sans-serif;
 	font-size: 1em;
+	padding: 1em 0em 1em 0em;
 	max-width: 100dvw;
 }
+
+main section:nth-child(8) article a{
+	text-decoration: none;
+	color: var(--color-text);
+	margin-bottom: 2em;
+}
+
+main section:nth-child(9){
+	display: flex;
+	flex-direction: column;	
+	padding: 1em 1em 0em 1em;
+	gap: 2em;
+	background-color: var(--color-dark-mode);
+	color: var(--color-background);
+}
+
+main section:nth-child(9) h2{
+	font-weight: 700;
+	
+}
+
+main section:nth-child(9) a{
+	font-weight: 300;
+	font-size: 14px;
+	font-family: "helveticanow", Arial, Helvetica, sans-serif;
+	color: var(--color-background);
+}
+
+main section:nth-child(9) ul{
+	list-style: none;
+    display: flex;
+    flex-direction: row;
+    max-width: 100dvw;
+    gap: 1.2em;
+    margin: 0;
+    align-items: center;
+	overflow-x:auto;
+}
+
+video{
+	max-width: auto;
+	height: 408px;
+	border-radius: 1em;
+}
+
+main section:nth-child(9) ul li {
+	display: flex;
+	flex-direction: column;
+	
+}
+
+main section:nth-child(9) ul li h2, main section:nth-child(9) ul li h3{
+	position: relative;
+	top: -3em;
+	gap: 1em;
+	overflow: hidden;
+	max-width: 100%;
+	font-size: 20px;
+	padding: 0em 0em 0em 1em;
+
+	
+}
+
+section:nth-child(10) {
+	padding: 1em;
+	margin-top: 6em;
+	margin-bottom: 1em;
+}
+
+section:nth-child(10) h2{
+	font-size: 28px;
+	font-weight: bolder;
+}
+
+/****************/
+/*    FOOTER    */
+/****************/
+
+/*https://chatgpt.com/share/674f0567-8a58-800c-b5fa-a33e57e4d7dd*/
+
+footer {
+    max-width: 100dvw;
+    color: var(--color-text);
+}
+
+footer ul:nth-child(1){
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+    padding: 0em;
+	gap: 0em;
+}
+
+footer ul li {
+    position: relative;
+    
+}
+
+footer h2 {
+    display: block;
+    padding: 1em;
+	min-width: 100dvw;
+    background-color: var(--color-bb);
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2em;
+	font-weight: bold;
+	font-family: "helveticanow";
+	border-bottom: solid 1px var(--color-border);
+}
+
+footer button {
+    background: none;
+    border: none;
+    position: absolute;
+    right: 1em;
+    top: 52%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    padding: 0.5em;
+	transform: 1s;
+}
+
+
+footer button svg {
+    width: 24px; 
+    height: 24px; 
+    transition: transform ease-in 150ms;
+	transform-origin: center;
+    font-size: 1.5rem; 
+}
+
+
+footer button[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+
+footer ul ul {
+    display: none;
+    background-color: var(--color-bb);
+    padding: 0;
+    margin: 0;
+}
+
+footer ul ul li a {
+    display: block;
+	list-style: none;
+    padding: 1em;
+	color: var(--color-text);
+    text-decoration: none;
+    font-size: 14px;
+	font-weight:lighter;
+}
+
+
+
+footer li[open] > ul {
+    display: block;
+	transform: 1s;
+}
+
+footer li[open] button{
+	transition: transform 0.5s linear;
+	transform-origin: center ;
+	transform: rotate(180deg);
+	top: 10px;
+	
+}
+
+footer section{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 1em ;
+	line-height: 1em ;
+	min-width: 100dvw;
+	max-width: 100dvw;
+	padding: 2em 1em 1em 1em;
+	background-color: var(--color-dark-mode);
+	color:	var(--color-background);
+	
+}
+
+footer section h2{
+	background-color: #1A1A1A;
+	border:none;
+	font-size: 14px;
+	padding: 0em;
+
+}
+
+footer section img{
+	width: 120px;
+	height: 40px;
+	align-self: center;
+}
+
+/*****************************/
+/* Micro interaction liking */
+/***************************/
+
+/* Style for the like button container */
+.like-button {
+    position: absolute; /* Ensures it doesn't affect other elements */
+    width: 40px; /* Size of the button */
+    height: 40px;
+    background: none; /* No background for the button */
+    border: none; /* Remove default browser styling */
+    padding: 0;
+    cursor: pointer; /* Make it look clickable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: var(--color-background);
+	margin-top: 1em;
+}
+
+/* Style for the heart icon */
+.heart-icon {
+    width: 24px;
+    height:24px;
+}
+
+/* Outline of the heart (default state) */
+.heart-outline {
+    transition: opacity 0.2s ease; /* Smooth fading when hidden */
+    opacity: 1; /* Visible by default */
+}
+
+/* Filled heart (hidden initially) */
+.heart-filled {
+    transform-origin: center;
+    transform: scale(0); /* Start hidden */
+    transition: transform 0.4s ease-out; /* Smooth animation for scale */
+    opacity: 0; /* Initially invisible */
+    fill: #FF4C00; /* Correct orange color */
+}
+
