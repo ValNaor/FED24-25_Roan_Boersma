@@ -525,6 +525,7 @@ main section:nth-child(9) ul li {
 }
 
 main section:nth-child(9) ul li h2, main section:nth-child(9) ul li h3{
+
 	position: relative;
 	top: -3em;
 	gap: 1em;
@@ -532,19 +533,22 @@ main section:nth-child(9) ul li h2, main section:nth-child(9) ul li h3{
 	max-width: 100%;
 	font-size: 20px;
 	padding: 0em 0em 0em 1em;
-
 	
 }
 
 section:nth-child(10) {
+
 	padding: 1em;
 	margin-top: 6em;
 	margin-bottom: 1em;
+
 }
 
 section:nth-child(10) h2{
+
 	font-size: 28px;
 	font-weight: bolder;
+
 }
 
 /****************/
@@ -554,24 +558,30 @@ section:nth-child(10) h2{
 /*https://chatgpt.com/share/674f0567-8a58-800c-b5fa-a33e57e4d7dd*/
 
 footer {
+
     max-width: 100dvw;
     color: var(--color-text);
+
 }
 
 footer ul:nth-child(1){
+
 	display: flex;
 	flex-direction: column;
 	list-style: none;
     padding: 0em;
 	gap: 0em;
+
 }
 
 footer ul li {
+
     position: relative;
     
 }
 
 footer h2 {
+
     display: block;
     padding: 1em;
 	min-width: 100dvw;
@@ -582,9 +592,11 @@ footer h2 {
 	font-weight: bold;
 	font-family: "helveticanow";
 	border-bottom: solid 1px var(--color-border);
+
 }
 
 footer button {
+
     background: none;
     border: none;
     position: absolute;
@@ -594,31 +606,39 @@ footer button {
     cursor: pointer;
     padding: 0.5em;
 	transform: 1s;
+
 }
 
 
 footer button svg {
+
     width: 24px; 
     height: 24px; 
     transition: transform ease-in 150ms;
 	transform-origin: center;
     font-size: 1.5rem; 
+
 }
 
 
 footer button[aria-expanded="true"] svg {
+
     transform: rotate(180deg);
+
 }
 
 
 footer ul ul {
+
     display: none;
     background-color: var(--color-bb);
     padding: 0;
     margin: 0;
+
 }
 
 footer ul ul li a {
+
     display: block;
 	list-style: none;
     padding: 1em;
@@ -626,16 +646,20 @@ footer ul ul li a {
     text-decoration: none;
     font-size: 14px;
 	font-weight:lighter;
+
 }
 
 
 
 footer li[open] > ul {
+
     display: block;
 	transform: 1s;
+
 }
 
 footer li[open] button{
+
 	transition: transform 0.5s linear;
 	transform-origin: center ;
 	transform: rotate(180deg);
@@ -644,6 +668,7 @@ footer li[open] button{
 }
 
 footer section{
+
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -658,17 +683,22 @@ footer section{
 }
 
 footer section h2{
+
 	background-color: #1A1A1A;
 	border:none;
 	font-size: 14px;
-	padding: 0em;
+	padding: 1em 1em 1em 0em;
+	max-width: 70dvw;	
+	min-width: 70dvw;
 
 }
 
 footer section img{
+
 	width: 120px;
 	height: 40px;
 	align-self: center;
+
 }
 
 /*****************************/
@@ -677,6 +707,7 @@ footer section img{
 
 /* Style for the like button container */
 .like-button {
+
     position: absolute; /* Ensures it doesn't affect other elements */
     width: 40px; /* Size of the button */
     height: 40px;
@@ -689,26 +720,198 @@ footer section img{
     justify-content: center;
 	background-color: var(--color-background);
 	margin-top: 1em;
+
 }
 
 /* Style for the heart icon */
 .heart-icon {
+
     width: 24px;
     height:24px;
+
 }
 
 /* Outline of the heart (default state) */
 .heart-outline {
+
     transition: opacity 0.2s ease; /* Smooth fading when hidden */
     opacity: 1; /* Visible by default */
+
 }
 
 /* Filled heart (hidden initially) */
 .heart-filled {
+
     transform-origin: center;
     transform: scale(0); /* Start hidden */
     transition: transform 0.4s ease-out; /* Smooth animation for scale */
     opacity: 0; /* Initially invisible */
     fill: #FF4C00; /* Correct orange color */
+
 }
 
+/****************/
+/*  Navigation  */
+/****************/
+
+header section:first-of-type{
+
+	display: flex; /* Hidden initially */
+	flex-direction: column;
+    position: fixed;
+    left: -105%; /* Initially hidden off-screen */
+    top: 0;
+    bottom: 0;
+    width: 100dvw; 
+    background-color: var(--color-border);
+    transition: left 0.3s ease;
+    z-index: 2000;	
+}
+
+.side-menu.open {
+    left: 0; /* Slide the menu in */
+	transition: ease-in 0.5s;
+	background-color: var(--color-border);
+}
+
+header section:first-of-type article h2:first-of-type{
+	flex-grow: 1;
+	font-size: 1em;
+	padding: 1em;
+}
+
+header section:first-of-type article:first-of-type{
+
+	display: flex;
+	flex-direction: row;
+	background-color: var(--color-background);
+	min-width: 100dvw;
+	margin: 0;
+	height: 40px;
+	align-items: center;
+	border: 1px var(--color-border);
+	padding: 0em;
+
+}
+
+header section:first-of-type svg:first-of-type{
+	flex-grow: 1;
+	margin: 0;
+	background: none;
+    border: none;
+	width: auto;
+	height: auto;
+}
+
+header section:first-of-type nav button{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border: solid 1px var(--color-border);
+	font-size: 1em;
+	font-weight: 500;
+	padding: 1em 4em 1em 4em;
+}
+
+header section:first-of-type nav{
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	border: 1px solid var(--color-border);
+	background-color: var(--color-background);
+	min-width: 100dvw;
+	height: 3em;
+	
+}
+
+header section article:nth-child(3){
+	display: flex;
+	flex-direction: row;
+	background-color: var(--color-background);
+	margin: 0;
+	padding: 1em;
+	width: 100dvw;
+	align-items: center;
+	height: 3em;
+}
+
+header section:nth-child(3) li:nth-child(n+13):nth-child(odd){
+	
+	height: auto;
+	padding: 1em;
+	background-color: var(--color-background);
+	border: solid 1px var(--color-border);
+	min-width: 100%;
+	margin-top: 1em;
+}
+
+header section article:nth-child(3) h2:first-of-type{
+	font-size: 0.9em;
+	flex-grow: 0;
+	padding: 1em 0em 1em 1em;
+	font-weight: normal;
+}
+
+header section:nth-child(3) article:nth-child(3) img{
+	
+	padding: 0;
+	height: auto;
+	width: 43px;
+}
+
+header section:nth-child(3) ul {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	overflow-y: auto;
+}
+
+header section:nth-child(3) ul li img{
+	padding:0em;
+
+}
+
+header section ul li{
+	position: relative;
+	min-width: 49%;
+	flex: 0 0 calc(50% - 0.5em);
+	list-style: none;
+	background-color: var(--color-background);
+}
+
+header section ul li h2{
+	font-size: 1em;
+	padding: 0.5em 0.5em 1em 1em;
+}
+
+header section:nth-child(3) li:nth-child(n+13){ /* https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child */
+	display: flex;
+	justify-content: space-between;
+	height: auto;
+	padding: 1em;
+	background-color: var(--color-background);
+	border: solid 1px var(--color-border);
+	flex-grow: 1;
+}
+
+header section:nth-child(3) li a{
+	text-decoration: none;
+	color: var(--color-text);
+	font-weight: lighter;
+}
+
+header section:nth-child(3) li:nth-child(16) a{
+	text-decoration: none;
+	color: var(--color-text);
+	font-weight:bold;
+}
+
+header section:nth-child(3) li:nth-child(16) svg{
+	align-self: flex-end;
+	max-width: 1em;
+	max-height: 1em;
+}

@@ -85,3 +85,28 @@ document.querySelectorAll('.like-button').forEach((button) => {
         }
     });
 });
+
+/*************/
+/* Menu open */
+/*************/
+
+const menuToggle = document.querySelector('.menu-toggle');
+const sideMenu = document.querySelector('#sideMenu');
+const closeMenuButton = document.querySelector('.close-menu');
+
+// Open the side menu
+menuToggle.addEventListener('click', () => {
+    sideMenu.classList.add('open');
+});
+
+// Close the side menu
+closeMenuButton.addEventListener('click', () => {
+    sideMenu.classList.remove('open');
+});
+
+// Optional: Close the menu when clicking outside of it
+document.addEventListener('click', (event) => {
+    if (!sideMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+        sideMenu.classList.remove('open');
+    }
+});
