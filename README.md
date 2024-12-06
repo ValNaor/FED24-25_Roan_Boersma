@@ -41,11 +41,11 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   #### Screenshot(s) van de eerste pagina (small screen): 
  Detail pagina voor een paar MR530 unisex - Trainers - Sea Salt
-  <img src="images/1.png" width="375px" alt="Detail pagina voor een paar MR530 unisex - Trainers - Sea Salt van 119,85">
+  <img src="images/2.png">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
-  <img src="images/2.png" width="375px" alt="omschrijving van de pagina">
+  <img src="images/1.png" width="375px" alt="omschrijving van de pagina">
  
 </details>
 
