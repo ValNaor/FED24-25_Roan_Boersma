@@ -97,6 +97,7 @@ const closeMenuButton = document.querySelector('.close-menu');
 // Open the side menu
 menuToggle.addEventListener('click', () => {
     sideMenu.classList.add('open');
+    
 });
 
 // Close the side menu
@@ -292,3 +293,68 @@ followButtons.forEach(button => {
   });
 });
 
+/*****************/
+/*   Dark Mode   */
+/*****************/
+
+const themes = {
+  light: {
+    "--color-text": "#1A1A1A",
+    "--color-background": "white",
+    "--color-deal": "#D9000C",
+    "--color-bb": "rgb(239,239,240)",
+    "--color-dark-mode": "rgb(0, 0, 0)",
+    "--color-border": "#D9DADC",
+    "--color-zalando": "#FF4C00",
+    "--color-accent": "#D3F9E9",
+    "--color-links": "#6328E0",
+  },
+  dark: {
+    "--color-text": "#E0E0E0",
+    "--color-background": "#121212",
+    "--color-deal": "#FF6F61",  // Fixed the extra '#' symbol
+    "--color-bb": "#2C2C2C",
+    "--color-dark-mode": "#000000",
+    "--color-border": "#444444",
+    "--color-zalando": "#FF4C00",
+    "--color-accent": "#005F4B",
+    "--color-links": "#BB86FC",
+  },
+};
+
+const systemTheme = () =>
+  window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";  // Corrected the logic to match system theme properly
+
+const getTheme = () => localStorage.getItem("theme") || systemTheme();
+
+const setTheme = (t) => {
+  localStorage.setItem("theme", t);
+  for (const k in themes[t]) {
+    document.documentElement.style.setProperty(k, themes[t][k]);
+  }
+};
+
+// Set default theme on startup
+setTheme(getTheme());
+
+// Add event listener to toggle theme
+const toggleThemeButton = document.getElementById("dark-mode-toggle");
+toggleThemeButton.addEventListener("click", toggleTheme);
+
+// Optional: Listen for system theme changes
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+  if (!localStorage.getItem("theme")) {
+    setTheme(systemTheme());  // Automatically adjust if the system theme changes
+  }
+});
+
+// Toggle between themes
+const toggleTheme = () => {
+  const newTheme = getTheme() === "dark" ? "light" : "dark";
+  setTheme(newTheme);
+};
+
+
+//https://chatgpt.com/share/6755a40e-31b0-800c-99b8-c73cf63fb4c9 & https://www.reddit.com/r/webdev/comments/kfwydp/how_to_add_dark_mode_to_your_website_in_5_minutes/

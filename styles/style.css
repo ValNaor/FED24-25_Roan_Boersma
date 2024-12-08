@@ -18,6 +18,19 @@
 	--color-accent: #D3F9E9;
 	--color-links: #6328E0;
   }
+
+  .dark-mode {
+	--color-text: #E0E0E0;
+	--color-background: #121212;
+	--color-deal: #FF6F61;
+	--color-bb: #2C2C2C;
+	--color-dark-mode: #000000; 
+	--color-border: #444444;
+	--color-zalando: #FF4C00; 
+	--color-accent: #005F4B;
+	--color-links: #BB86FC;
+  }
+  
     /****************/
    /*   font face  */
   /****************/
@@ -1556,3 +1569,16 @@ header section:nth-child(3) li:nth-child(16) svg{
 }
 
 /***************/
+
+#dark-mode-toggle{
+	z-index: 1000;
+	order: 2;
+	border: 1px solid var(--color-border);
+    cursor: pointer;
+}
+
+#dark-mode-toggle svg{
+
+	height: 30px;
+	width: 30px;
+}
